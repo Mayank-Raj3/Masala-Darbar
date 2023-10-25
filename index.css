@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  animation: forwards;
 }
 .header {
   display: flex;
@@ -42,14 +43,9 @@ body {
 }
 
 .cards-container {
-  width: 30%;
-  margin-top: 10px;
-  margin-left: 40px;
-  padding-top: 10px;
   display: inline;
-  padding-left: 10px;
+  margin: 20px;
 }
-
 .card {
   background-color: #fff;
   box-shadow: 10px 10px 40px 2px rgba(128, 128, 128, 0.4);
