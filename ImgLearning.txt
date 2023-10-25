@@ -1,0 +1,54 @@
+1. maps
+// arr = [10, 10, 20, 30];
+
+// arr.map((x, index) => {
+//   console.log(x + index);
+// });
+
+2.
+        return <RestaurantCard {...rr.info} key = {...rr.info.id} />; 
+we have used destructuring to destructure the res object  and given unique key to every component 
+
+and passed as props 
+
+const RestaurantCard = ({
+  cloudinaryImageId,
+  aggregatedDiscountInfoV3,
+  sla,
+  name,
+  avgRatingString,
+  costForTwo,
+  cuisines,
+}) 
+
+
+https://legacy.reactjs.org/docs/components-and-props.html
+
+
+
+3. there are two way for exporting the file from component 
+    -   export default Title
+    - for importing 
+    import Header from "./components/Header";
+                                    /Header.js
+                                    /Header.jsx
+    any thing is fine 
+    We can export default only one thing 
+    
+    2nd type is exporting the Named import
+ 
+        - incase of title 
+        import {Title} from "./components/Title";
+        export const Title =(){}
+
+
+
+	here in title {not destructuring}
+	
+	when its named import then we can importt as {title , header} from “path”
+
+
+
+- We need to create a config file  , in which all the hard coded data are put 
+
+and this will be a named import 
