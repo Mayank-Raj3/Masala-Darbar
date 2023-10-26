@@ -141,3 +141,97 @@ body {
   margin-bottom: 6px;
   margin-left: 30px;
 }
+
+/* search bar */
+.rbcmH {
+  position: -webkit-sticky;
+
+  width: 100%;
+  left: 0;
+  top: 80px;
+  z-index: 2;
+
+  padding-bottom: 8px;
+  padding-top: 48px;
+}
+
+._1JbgW {
+  padding: 0;
+  background: #fff;
+  height: 48px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(40, 44, 63, 0.2);
+}
+._1jet9 {
+  width: 860px;
+  margin: 0 auto 8px;
+  border: 1px solid rgba(40, 44, 63, 0.3);
+  border-radius: 3px;
+}
+._1jet9 {
+  left: 0;
+  z-index: 2;
+  transform: translateZ(0);
+}
+._1QBzC {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 48px;
+  width: 100%;
+  padding-right: 13px;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+._2O4-3:first-child {
+  padding-left: 16px;
+}
+
+._2O4-3 {
+  -ms-flex: 1;
+  flex: 1;
+  min-width: 0;
+  padding-right: 12px;
+}
+
+._2FkHZ {
+  font-size: 1.15rem;
+  line-height: 24px;
+  width: 100%;
+  height: 100%;
+  outline: 0;
+  border: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: inherit;
+  color: inherit;
+  background: inherit;
+  vertical-align: middle;
+  font-weight: 500;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+._2p8XD {
+  cursor: pointer;
+  color: #686b78;
+  font-size: 18px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: inherit;
+  margin-right: 20px;
+}
+.search-mag-glass {
+  font-weight: 900;
+}
