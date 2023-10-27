@@ -37,7 +37,7 @@ import { useEffect, useState } from "react";
     setFilteredResturantList(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   }
   //conditional rendering 
-  return resturantList.length===0 ? (<Shimmer/>):(
+  return resturantList?.length===0 ? (<Shimmer/>):(
     <>
     <div className="body-container">
     <div className="rbcmH">
