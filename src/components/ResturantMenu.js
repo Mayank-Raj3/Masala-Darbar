@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link, createBrowserRouter, useParams } from "react-router-dom";
 import { useState } from "react"; // useParams is a hook s
+import MenuShimmer from "./MenuShimmer";
 
 const RestaurantMenu = () => {
   // for reading a dynamic url
@@ -31,6 +32,13 @@ const RestaurantMenu = () => {
       ?.itemCards
   );
 
+  /*
+    remaning things 
+      - resturantMenu[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards
+      - will iterate through cads and change it 
+
+
+  */
   let cus = "";
   for (
     let i = 0;
@@ -40,7 +48,10 @@ const RestaurantMenu = () => {
     cus += resturantMenu[0]?.card?.card?.info?.cuisines[i] + ", ";
   }
 
-  return (
+  console.log(resturantMenu.length);
+  return resturantMenu.length === undefined ? (
+    <MenuShimmer />
+  ) : (
     <div className="menu-cont">
       <div className="menu-card-img">
         <img
@@ -158,7 +169,7 @@ const RestaurantMenu = () => {
         </div>
       </div>
 
-      {resturantMenu[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards.map(
+      {resturantMenu[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards.map(
         (rr) => {
           console.log(rr.card.info);
           return (

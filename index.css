@@ -494,7 +494,7 @@ ul {
 
 .item-name-menu {
   margin-right: 4px;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 500;
   color: #3e4152;
   word-break: break-word;
@@ -523,4 +523,20 @@ ul {
 }
 .nonveg-veg {
   margin-left: 10px;
+}
+
+.menu-cont {
+  position: relative;
+  /* Other styling for the container */
+}
+
+.shimmerBGM {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.borderM {
+  border: 1px solid rgba(100, 99, 99, 0.938);
+  border-radius: 10px;
 }
