@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { restaurants } from "/src/components/config";
 import RestaurantCard from "/src/components/RestaurantCard";
 import Shimmer from "/src/components/Shimmer";
