@@ -484,23 +484,33 @@ ul {
 /* Items menu bar */
 
 .menu-item-bar {
-  border: 1px solid black;
+  border: 1px dotted rgb(112, 109, 109);
   height: 150px;
   margin: 20px;
   border-radius: 10px;
   display: flex;
+  background-color: whitesmoke;
+  box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.1);
 
   justify-content: space-between;
 }
-
-.img-menu-item {
+¯ .img-menu-item {
   overflow: hidden;
   border-radius: 10px;
 }
-
+.img-menu-item {
+  max-width: 100%; /* Limiting width */
+  max-height: 100%; /* Limiting height */
+  overflow: hidden; /* Hide overflow */
+}
+.img-menu-item img {
+  width: 100%; /* Adjust image width */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Remove extra space */
+}
 .item-name-menu {
   margin-right: 4px;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 500;
   color: #3e4152;
   word-break: break-word;
@@ -508,7 +518,7 @@ ul {
 
 .item-price-menu {
   color: #3e4152;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin-right: 8px;
 }
 .item-menu-discreption {
@@ -517,8 +527,9 @@ ul {
   color: rgba(40, 44, 63, 0.45);
   width: 70%;
   letter-spacing: -0.3px;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   margin-left: 10px;
+  overflow: hidden;
 }
 
 .left-menu-item {

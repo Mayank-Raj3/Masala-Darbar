@@ -1,19 +1,23 @@
 import { useEffect } from "react";
-import { Link, createBrowserRouter, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useState } from "react"; // useParams is a hook s
 import MenuShimmer from "./MenuShimmer";
+import useRestaurantMenu from "../utils/useResturantMenu";
 
 const RestaurantMenu = () => {
   // for reading a dynamic url
   const { id } = useParams();
   const [resturantMenu, setResturantMenu] = useState({});
 
+  //
+  //
+  //
+  //  this can be made inside a custom hooks
+  // const resturantMenu = useResturantMenu(id);
+  // but i dont know why its not working
   useEffect(() => {
     getRestaurantInfo();
   }, []);
-
-  console.log(id);
-  // https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/pasdg6owucvi23hcp9eb
   async function getRestaurantInfo() {
     try {
       const response = await fetch(
@@ -26,19 +30,15 @@ const RestaurantMenu = () => {
       console.error("Error fetching restaurant information:", error);
     }
   }
+  // Ends
+  //
+  //
 
   console.log(
     resturantMenu[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card
       ?.itemCards
   );
 
-  /*
-    remaning things 
-      - resturantMenu[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards
-      - will iterate through cads and change it 
-
-
-  */
   let cus = "";
   for (
     let i = 0;
@@ -48,20 +48,20 @@ const RestaurantMenu = () => {
     cus += resturantMenu[0]?.card?.card?.info?.cuisines[i] + ", ";
   }
 
-  console.log(resturantMenu.length);
+  console.log(resturantMenu);
   return resturantMenu.length === undefined ? (
-    <MenuShimmer />
+    <MenuShimmer key={169696969} />
   ) : (
     <div className="menu-cont">
       <div className="menu-card-img">
         <img
+          className="imgg"
           src={
             "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
             resturantMenu[0]?.card?.card?.info?.cloudinaryImageId
           }
         />
       </div>
-
       <div className="RestaurantHeader_container__2XRhv">
         <div className="RestaurantHeader_wrapper__2GTdS RestaurantHeader_marginBottom__1rbfK">
           <div className="RestaurantNameAddress_wrapper__24l_g">
@@ -73,10 +73,7 @@ const RestaurantMenu = () => {
                 {cus.slice(0, -2)}
               </p>
             </div>
-            <div
-              className="RestaurantNameAddress_areaWrapper__3HIxj"
-              aria-label="Selected outlet is New BEL Road"
-            >
+            <div className="RestaurantNameAddress_areaWrapper__3HIxj">
               <p
                 className="RestaurantNameAddress_area__2P9ib"
                 aria-hidden="true"
@@ -169,35 +166,41 @@ const RestaurantMenu = () => {
         </div>
       </div>
 
-      {resturantMenu[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards.map(
-        (rr) => {
-          console.log(rr.card.info);
-          return (
-            <div className="menu-item-bar">
-              <div className="left-menu-item">
-                <div className="nonveg-veg">
-                  <div className="item-name-menu">{rr.card.info.name}</div>
-                  <div className="item-price-menu">
-                    ₹{parseInt(rr.card.info.price) / 100}
+      {/* Resturant food items */}
+      {resturantMenu[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.map((cc) =>
+        cc?.card?.card?.itemCards?.map((rr) => {
+          if (rr && rr.card && rr.card.info) {
+            console.log(rr.card.info);
+
+            return (
+              <div className="menu-item-bar" key={rr.card.info.id}>
+                <div className="left-menu-item">
+                  <div className="nonveg-veg">
+                    <div className="item-name-menu">{rr.card.info.name}</div>
+                    <div className="item-price-menu">
+                      ₹
+                      {parseInt(rr.card.info.price) / 100 ||
+                        parseInt(rr.card.info.defaultPrice) / 100}
+                    </div>
+                  </div>
+                  <div className="item-menu-discreption">
+                    {rr.card.info.description}
                   </div>
                 </div>
-
-                <div className="item-menu-discreption">
-                  {rr.card.info.description}
+                <div className="img-menu-item">
+                  <img
+                    src={
+                      "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/" +
+                      rr.card.info.imageId
+                    }
+                    alt={rr.card.info.name}
+                  />
                 </div>
               </div>
-
-              <div className="img-menu-item">
-                <img
-                  src={
-                    "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/" +
-                    rr.card.info.imageId
-                  }
-                />
-              </div>
-            </div>
-          );
-        }
+            );
+          }
+          return null;
+        })
       )}
     </div>
   );

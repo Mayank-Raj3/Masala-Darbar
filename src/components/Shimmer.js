@@ -45,6 +45,9 @@ const Shimmer = () => {
       <ShimmerCard />
       <ShimmerCard />
       <ShimmerCard />
+      <ShimmerCard />
+      <ShimmerCard />
+      <ShimmerCard />
     </div>
   );
 };
