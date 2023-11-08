@@ -502,11 +502,13 @@ ul {
   max-width: 100%; /* Limiting width */
   max-height: 100%; /* Limiting height */
   overflow: hidden; /* Hide overflow */
+  margin: 5px;
 }
 .img-menu-item img {
-  width: 100%; /* Adjust image width */
-  height: auto; /* Maintain aspect ratio */
+  width: 200px; /* Adjust image width */
+  height: 140px; /* Maintain aspect ratio */
   display: block; /* Remove extra space */
+  border-radius: 10%;
 }
 .item-name-menu {
   margin-right: 4px;

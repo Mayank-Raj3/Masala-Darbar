@@ -80,8 +80,8 @@ import { useEffect, useState } from "react";
     
       <div className="restaurant-list">
         {
-        filteredResturantList.map((rr) => {
-          return <RestaurantCard {...rr.info} key = {...rr.info.id} />; 
+        filteredResturantList?.map((rr) => {
+          return <RestaurantCard {...rr?.info} key = {...rr?.info?.id} />; 
         })}
       </div>
     </div>

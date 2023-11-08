@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Title = () => (
   <a className="a-logo" href="/">
@@ -13,6 +14,7 @@ const Title = () => (
 );
 
 const Header = () => {
+  const online = useOnlineStatus();
   return (
     <div className="header">
       <Title />
@@ -24,10 +26,19 @@ const Header = () => {
           <li>
             <Link to="/about">About</Link>
           </li>
-          <li>Offers</li>
+          <li>
+            <Link to="/grocery">Grocery</Link>
+          </li>
           <li>Help</li>
           <li>Profile</li>
           <li>Cart</li>
+          <li>
+            {online ? (
+              <div title="online">💚</div>
+            ) : (
+              <div title="offline">💔</div>
+            )}
+          </li>
         </ul>
       </div>
     </div>
