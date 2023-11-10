@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState } from "react"; // useParams is a hook s
 import MenuShimmer from "./MenuShimmer";
 import useRestaurantMenu from "../utils/useResturantMenu";
-
+import ResturantMenuTitle from "./ResturantMenuTitle";
 const RestaurantMenu = () => {
   // for reading a dynamic url
   const { id } = useParams();
@@ -34,10 +34,15 @@ const RestaurantMenu = () => {
   //
   //
 
-  console.log(
-    resturantMenu[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card
-      ?.itemCards
-  );
+  const cato =
+    resturantMenu[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((cc) => {
+      return (
+        cc?.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+      );
+    });
+
+  // resturantMenu[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
 
   let cus = "";
   for (
@@ -48,9 +53,10 @@ const RestaurantMenu = () => {
     cus += resturantMenu[0]?.card?.card?.info?.cuisines[i] + ", ";
   }
 
-  console.log(resturantMenu);
+  // console.log(resturantMenu);
+
   return resturantMenu.length === undefined ? (
-    <MenuShimmer key={169696969} />
+    <MenuShimmer key={1112121212121} />
   ) : (
     <div className="menu-cont">
       <div className="menu-card-img">
@@ -166,42 +172,9 @@ const RestaurantMenu = () => {
         </div>
       </div>
 
-      {/* Resturant food items */}
-      {resturantMenu[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.map((cc) =>
-        cc?.card?.card?.itemCards?.map((rr) => {
-          if (rr && rr.card && rr.card.info) {
-            console.log(rr.card.info);
-
-            return (
-              <div className="menu-item-bar" key={rr.card.info.id}>
-                <div className="left-menu-item">
-                  <div className="nonveg-veg">
-                    <div className="item-name-menu">{rr.card.info.name}</div>
-                    <div className="item-price-menu">
-                      ₹
-                      {parseInt(rr.card.info.price) / 100 ||
-                        parseInt(rr.card.info.defaultPrice) / 100}
-                    </div>
-                  </div>
-                  <div className="item-menu-discreption">
-                    {rr.card.info.description}
-                  </div>
-                </div>
-                <div className="img-menu-item">
-                  <img
-                    src={
-                      "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/" +
-                      rr.card.info.imageId
-                    }
-                    alt={rr.card.info.name}
-                  />
-                </div>
-              </div>
-            );
-          }
-          return null;
-        })
-      )}
+      {cato.map((cc, index) => {
+        return <ResturantMenuTitle props={cc?.card?.card} key={index} />;
+      })}
     </div>
   );
 };
