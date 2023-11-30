@@ -1,28 +1,38 @@
 import { useState } from "react";
 import { useResolvedPath } from "react-router-dom";
 
-const ResturantMenuTitle = ({ props }) => {
-  const [upDown, setUpDown] = useState(false);
+// below componenet is controlled by the parent
+const ResturantMenuTitle = ({ props, upDown, setShowIndex }) => {
+  // will be passedn in as a props
+  // const [upDown, setUpDown] = useState(false);
 
+  // handleClick = () => {
+  //   upDown ? setUpDown(false) : setUpDown(true);
+  // };
+
+  const [upDown2, setUpDown2] = useState(false);
   handleClick = () => {
-    upDown ? setUpDown(false) : setUpDown(true);
+    setShowIndex(); // controlling the parent
+
+    upDown2 ? setUpDown2(false) : setUpDown2(true);
   };
 
   return (
     <>
-      <div className="accordion" onClick={handleClick}>
+      <div className="accordion " onClick={handleClick}>
+        {/* <div className="accordion "> */}
         <span className="acc-title">
           {props?.title}({props?.itemCards?.length})
         </span>
         {/* Onclick takes a callback function */}
-        {!upDown && (
+        {!upDown && !upDown2 && (
           <img
             className="acc-img"
             src="https://cdn-icons-png.flaticon.com/512/54/54785.png"
           />
         )}
 
-        {upDown && (
+        {upDown && upDown2 && (
           <img
             className="acc-img"
             src="https://cdn-icons-png.flaticon.com/512/7268/7268569.png"
@@ -32,7 +42,7 @@ const ResturantMenuTitle = ({ props }) => {
 
       {/* <img src="https://cdn-icons-png.flaticon.com/512/25/25678.png" /> */}
 
-      {upDown && (
+      {upDown && upDown2 && (
         <menu>
           {props.itemCards.map((rr, index) => {
             if (rr && rr.card && rr.card.info) {

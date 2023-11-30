@@ -8,6 +8,7 @@ const RestaurantMenu = () => {
   // for reading a dynamic url
   const { id } = useParams();
   const [resturantMenu, setResturantMenu] = useState({});
+  const [showIndex, setShowIndex] = useState(0);
 
   //
   //
@@ -173,7 +174,16 @@ const RestaurantMenu = () => {
       </div>
 
       {cato.map((cc, index) => {
-        return <ResturantMenuTitle props={cc?.card?.card} key={index} />;
+        return (
+          //  now ResturantMenuTitle is a controlled component as we are making at a time only one accordian
+          // should be opened
+          <ResturantMenuTitle
+            props={cc?.card?.card}
+            key={index}
+            upDown={index === showIndex - 1 && true}
+            setShowIndex={() => setShowIndex(index + 1)}
+          />
+        );
       })}
     </div>
   );

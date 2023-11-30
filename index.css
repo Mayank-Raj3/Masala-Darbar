@@ -573,6 +573,7 @@ ul {
 
 .accordion {
   /* border: 2px solid black; */
+  cursor: pointer;
   height: 40px;
   margin: 20px;
   border-radius: 5px;
