@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   margin: 0;
   padding: 0;
@@ -86,7 +90,7 @@ body {
   background-color: #3582ec;
   position: absolute;
   bottom: 21%;
-  padding: 2px 5px 2px 20px;
+  padding: 2px 5px 2px 2px;
   border-radius: 0 4px 4px 0;
   max-width: 60px;
   left: 0;
@@ -485,6 +489,7 @@ ul {
 /* Items menu bar */
 
 .menu-item-bar {
+  overflow: hidden;
   padding: 10px;
   border: 1px dotted rgb(112, 109, 109);
   height: 150px;
@@ -500,19 +505,16 @@ ul {
   overflow: hidden;
   border-radius: 10px;
 }
+
 .img-menu-item {
-  max-width: 100%; /* Limiting width */
-  max-height: 100%; /* Limiting height */
-  overflow: hidden; /* Hide overflow */
-  margin: 5px;
-}
-.img-menu-item img {
+  overflow: hidden;
   width: 200px; /* Adjust image width */
-  height: 140px; /* Maintain aspect ratio */
+  height: 130px; /* Maintain aspect ratio */
   display: block; /* Remove extra space */
   border-radius: 10%;
 }
 .item-name-menu {
+  overflow: hidden;
   font-weight: bold;
   margin-right: 4px;
   font-size: 1.2rem;
@@ -522,11 +524,15 @@ ul {
 }
 
 .item-price-menu {
+  overflow: hidden;
+
   color: #3e4152;
   font-size: 1.1rem;
 }
 .item-menu-description {
   margin-top: 14px;
+  overflow: hidden;
+
   margin-right: 4px;
   line-height: 1.3;
   color: rgba(80, 81, 85, 0.45);
@@ -544,6 +550,7 @@ ul {
   justify-content: space-evenly;
 }
 .nonveg-veg {
+  overflow: hidden;
   margin-left: 10px;
 }
 
@@ -574,6 +581,7 @@ ul {
 .accordion {
   /* border: 2px solid black; */
   cursor: pointer;
+  overflow: hidden;
   height: 40px;
   margin: 20px;
   border-radius: 5px;

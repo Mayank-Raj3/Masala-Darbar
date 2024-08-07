@@ -32,7 +32,7 @@ const RestaurantCard = ({
               {aggregatedDiscountInfoV3?.header}
               <p>{aggregatedDiscountInfoV3?.subHeader} </p>
             </div>
-            <div className="pro-discount">PRO extra 15% OFF</div>
+            <div className="pro-discount"> 15% OFF</div>
             <div className="delivery-time">
               {" "}
               {sla?.deliveryTime + " "}

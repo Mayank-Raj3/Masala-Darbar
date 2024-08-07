@@ -8,7 +8,7 @@ const RestaurantMenu = () => {
   // for reading a dynamic url
   const { id } = useParams();
   const [resturantMenu, setResturantMenu] = useState({});
-  const [showIndex, setShowIndex] = useState(0);
+  const [showIndex, setShowIndex] = useState(1);
 
   //
   //

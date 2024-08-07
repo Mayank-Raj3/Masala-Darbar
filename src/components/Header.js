@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { useSelector } from "react-redux";
 
 const Title = () => (
   <a className="a-logo" href="/">
@@ -15,6 +16,11 @@ const Title = () => (
 
 const Header = () => {
   const online = useOnlineStatus();
+
+  // Subscribing to the store using a Selector
+  const cartItems = useSelector((store) => store.cart.items);
+  //console.log(cartItems);
+
   return (
     <div className="header">
       <Title />
@@ -31,7 +37,9 @@ const Header = () => {
           </li>
           <li>Help</li>
           <li>Profile</li>
-          <li>Cart</li>
+          <li>
+            <Link to="/cart">Cart-({cartItems.length})</Link>
+          </li>
           <li>
             {online ? (
               <div title="online">💚</div>
